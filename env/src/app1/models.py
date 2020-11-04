@@ -45,6 +45,21 @@ class Comments(models.Model) :
     created_at = models.DateField(default=datetime.now())
     content = models.TextField()
 
+class Room(models.Model) :
+    ''' Represents chat rooms that users can join '''
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    slug = models.CharField(max_length=50)
+
+    def __str__(self) :
+        '''  Returns human-readable representation of the model instance  '''
+        return self.name
+
+class UserChats(models.Model) :
+    #User will be a concatenation of user type and user id
+    user = models.CharField(max_length=255)
+    chat_slug = models.CharField(max_length=50)
+    with_user = models.CharField(max_length=255, default = "")
 
 # # Create your models here.
 # class Product(models.Model): 
@@ -60,3 +75,5 @@ admin.site.register(Senior)
 admin.site.register(Caregiver)
 admin.site.register(Posts)
 admin.site.register(Comments)
+admin.site.register(Room)
+admin.site.register(UserChats)

@@ -127,3 +127,10 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
+
+
+# Twilio credentials, belonging to Arundhati Kurup's account
+TWILIO_ACCOUNT_SID = 'AC0406124c4457901483f4bb5e59a87b48'
+TWILIO_API_KEY = 'SKd6b648f4259a6ccb3b0f5e6f468579f1'
+TWILIO_API_SECRET = 'zp4ddqsFECA9LRwOHmvS26LFv9ttVfaK'
+TWILIO_CHAT_SERVICE_SID = 'IS0830aaab32364c7ab95be90007d67794'

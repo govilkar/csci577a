@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app1.views import landing_page, registration_page, handle_login, forum, add_new_post, add_post_comment, senior_dashboard_view, caregiver_dashboard_view, search_caregivers, view_caregiver_details, logout, dashboard_view
+from django.conf.urls import url
+from app1.views import landing_page, registration_page, handle_login, forum, add_new_post, add_post_comment, senior_dashboard_view, caregiver_dashboard_view, search_caregivers, view_caregiver_details, logout, dashboard_view, room_detail, all_rooms, token, add_or_get_chatroom, get_chats
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +32,11 @@ urlpatterns = [
     path('/view_caregiver_details/<int:caregiver_id>', view_caregiver_details, name='view_caregiver_details'),
     path('/logout', logout, name='logout'),
     path('/dashboard_view', dashboard_view, name='dashboard_view'),
+    path('all_rooms/', all_rooms, name = 'all_rooms'),
+    url(r'rooms/(?P<slug>[-\w]+)/$', room_detail, name="room_detail"),
+    url(r'token$',token, name="token" ),
+    path('/add_or_get_chatroom/<int:user_id>', add_or_get_chatroom, name='add_or_get_chatroom'),
+    path('/get_chats', get_chats, name='get_chats'),
 ]
 
 from django.conf import settings
